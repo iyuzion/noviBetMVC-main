@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select class="form-control" id="teamOne">
+  <option value="0">select team</option>
+  <option th:each="team : ${teamOne}" th:value="${team}" th:text="${team}"></option>
+</select>
+</body>
+</html>
