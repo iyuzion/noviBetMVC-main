@@ -5,13 +5,15 @@
     <title>Teams</title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 <style>
 .navbar {
 	background-color: green;
 }
 </style>
-<body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -29,10 +31,18 @@
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/bet}">Betting</a></li>
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/addteam}">Add team</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/addmatch}">Add match</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<style>
+.navbar {
+	background-color: green;
+}
+</style>
+<body>
+<br>
 <br>
 <br>
 <br>
