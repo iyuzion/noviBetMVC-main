@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Novibet</title>
+
+</head>
+<!--Navigation bar-->
+<div th:insert="header :: header">...</div>
+<!--end of Navigation bar-->
+<body>
+<table>
+  <thead>
+  <tr>
+    <th> match </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${matches.size() == 0}">
+    <td colspan="2"> No matches Available</td>
+  </tr>
+  <div th:each="thematch :${matches}">
+    <div th:text="${thematch.getTeamOne().getName()}
+    + ' vs. '
+    + ${thematch.getTeamTwo().getName()}
+    + ' winner:' + ${thematch.getWinnerName()}">
+    </div>
+    <form th:action="@{/addwinner}" th:object="${match}" method="post">
+      <input type="hidden" name="id" th:value="${thematch.getId()}">
+      <input type="hidden" name="userOne" th:value="${thematch.teamOne.getId()}">
+      <input type="hidden" name="UserTwo" th:value="${thematch.teamTwo.getId()}">
+      <select name="winner" required th:field="*{winner}">
+        <option th:field="*{winner}" th:each="team :${thematch.getDeelnemers()}"
+                th:value="${team.getId()}"
+                th:text="${team.getName()}">
+      </select>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+  </tbody>
+</table>
+</body>
+</html>

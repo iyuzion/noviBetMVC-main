@@ -5,47 +5,15 @@
   <meta charset="ISO-8859-1">
   <title>Novibet</title>
 
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 </head>
-<style>
-.navbar {
-	background-color: green;
-}
-</style>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed"
-              data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-              aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span> <span
-              class="icon-bar"></span> <span class="icon-bar"></span> <span
-              class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#" th:href="@{/}">Login</a>
-    </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/bet}">Betting</a></li>
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/addteam}">Add team</a></li>
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/addmatch}">Add match</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<!--Navigation bar-->
+<div th:insert="header :: header">...</div>
+<!--end of Navigation bar-->
 <body>
-<br>
-<br>
-<br>
-<br>
-<br>
 <table>
   <thead>
   <tr>
-    <th> match </th>
+    <th> matches </th>
   </tr>
   </thead>
   <tbody>
@@ -53,15 +21,9 @@
     <td colspan="2"> No matches Available</td>
   </tr>
   <tr th:each="match : ${matches}">
-    <form action="#" th:action="@{/addwinner}" th:object="${match}" method="post">
-      <td><span th:text="${match.teamOne.name}"> match </span></td>
-      <td>' 'vs.' '</td>
-      <td><span th:text="${match.teamTwo.name}"> match </span></td>
-      <select class="form-control" id="winner" th:field="*{winner}">
-        <option value="0">select team</option>
-        <option th:each="team : ${teams}" th:value="${team}" th:text="${team.getName()}"></option>
-      </select>
-    </form>
+    <td><span th:text="${match.teamOne.name}"> match </span></td>
+    <td>' vs. '</td>
+    <td><span th:text="${match.teamTwo.name}"> match </span></td>
   </tr>
   </tbody>
 </table>

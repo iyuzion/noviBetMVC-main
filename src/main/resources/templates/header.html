@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Novibet</title>
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-</head>
-<style>
-.navbar {
-	background-color: green;
-}
-</style>
-<body>
 <header th:fragment="header">
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,12 +19,16 @@
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/bet}">Betting</a></li>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/addteam}">Add team</a></li>
-                    <li sec:authorize="isAuthenticated()"><a th:href="@{/addMatch}">Add match</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/addmatch}">Add match</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/addwinner}">Add winner</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <br>
+    <br>
+    <br>
+
 </header>
-</body>
-</html>
+
 

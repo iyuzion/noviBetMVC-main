@@ -4,45 +4,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Novibet</title>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 </head>
-<style>
-.navbar {
-	background-color: green;
-}
-</style>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#" th:href="@{/}">Login</a>
-		</div>
-		<div id="navbar" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
-				<li sec:authorize="isAuthenticated()"><a th:href="@{/bet}">Betting</a></li>
-				<li sec:authorize="isAuthenticated()"><a th:href="@{/addteam}">Add team</a></li>
-				<li sec:authorize="isAuthenticated()"><a th:href="@{/addmatch}">Add match</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<!--Navigation bar-->
+<div th:insert="header :: header">...</div>
+<!--end of Navigation bar-->
 <body>
-
-
-	<br>
-	<br>
-	<br>
-	<br>
 	<div class="container">
 		<div class="alert alert-success">
 			<strong>Success!</strong> Login Successful.
