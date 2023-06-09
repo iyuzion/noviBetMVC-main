@@ -1,5 +1,6 @@
 package nl.novi.model;
 
+
 import lombok.Getter;
 import lombok.Setter;
 

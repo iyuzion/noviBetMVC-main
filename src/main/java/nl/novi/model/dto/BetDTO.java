@@ -5,9 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MatchDTO {
-    private Long id;
-    private Long teamOne;
-    private Long teamTwo;
+public class BetDTO {
+    private String user;
+    private Long match;
     private String winner;
 }

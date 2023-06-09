@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.Collections;
 import java.util.List;
 
+import static java.util.Comparator.reverseOrder;
+
 @Controller
 public class MatchController {
 
@@ -45,16 +47,16 @@ public class MatchController {
     @PostMapping("/addwinner")
     public String addWinner(@ModelAttribute("match")MatchDTO matchDTO) {
         Match match = matchRepository.getById(matchDTO.getId());
-        match.setWinner(teamRepository.getById(matchDTO.getWinner()));
+        match.setWinner(matchDTO.getWinner());
         matchRepository.save(match);
-        return "redirect:/";
+        return "redirect:/addwinner";
     }
 
     @GetMapping("/addwinner")
     public String addWinner(Model model) {
         model.addAttribute("matches", matchRepository.findAll()
                 .stream()
-                .sorted(Match::compareTo)
+                .sorted(reverseOrder())
                 .toList());
         model.addAttribute("teams", teamRepository.findAll());
         model.addAttribute("match", new MatchDTO());
@@ -64,7 +66,7 @@ public class MatchController {
     public String showAll(Model model) {
         model.addAttribute("matches", matchRepository.findAll()
                 .stream()
-                .sorted(Match::compareTo)
+                .sorted(reverseOrder())
                 .toList());
         model.addAttribute("teams", teamRepository.findAll());
         return "/matches";

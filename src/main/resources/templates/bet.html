@@ -9,6 +9,35 @@
 <div th:insert="header :: header">...</div>
 <!--end of Navigation bar-->
 <body>
-<div>betting!</div>
+<table>
+    <thead>
+    <tr>
+        <th> Bets </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${matches.size() == 0}">
+        <td colspan="2"> No matches Available</td>
+    </tr>
+    <div th:each="thematch :${matches}">
+        <div th:text="${thematch.getTeamOne().getName()}
+    + ' vs. '
+    + ${thematch.getTeamTwo().getName()}
+    + ' winner:' + ${thematch.getWinnerName()}">
+        </div>
+        <form th:action="@{/bet}" th:object="${bet}" method="post">
+            <input type="hidden" name="user" th:value="${#authentication.getPrincipal().getUsername()}">
+            <input type="hidden" name="match" th:value="${thematch.id}">
+            <select name="winner" required th:field="*{winner}">
+                <option  th:field="*{winner}" th:each="team :${thematch.getDeelnemers()}"
+                         th:value="${team.getName()}"
+                         th:text="${team.getName()}">
+                <option value="Tie" >Tie</option>
+            </select>
+            <button type="submit" >Update</button>
+        </form>
+    </div>
+    </tbody>
+</table>
 </body>
 </html>

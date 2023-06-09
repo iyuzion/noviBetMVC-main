@@ -18,9 +18,9 @@
                 <ul class="nav navbar-nav">
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/bet}">Betting</a></li>
-                    <li sec:authorize="isAuthenticated()"><a th:href="@{/addteam}">Add team</a></li>
-                    <li sec:authorize="isAuthenticated()"><a th:href="@{/addmatch}">Add match</a></li>
-                    <li sec:authorize="isAuthenticated()"><a th:href="@{/addwinner}">Add winner</a></li>
+                    <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/addteam}">Add team</a></li>
+                    <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/addmatch}">Add match</a></li>
+                    <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/addwinner}">Add winner</a></li>
                 </ul>
             </div>
         </div>

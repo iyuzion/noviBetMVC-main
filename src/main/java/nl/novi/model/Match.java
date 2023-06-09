@@ -24,11 +24,11 @@ public class Match implements Comparable<Match> {
     //@Column(name = "teamTwo")
     private Team teamTwo;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    //@Column(name = "winner")
-    private Team winner;
+    //@OneToOne(cascade = CascadeType.ALL)
+    @Column(name = "winner")
+    private String winner;
     public String getWinnerName() {
-        return winner != null ? winner.getName() : "geen winner";
+        return winner != null ? winner : "geen winner";
     }
     public List<Team> getDeelnemers() {
         List<Team> list = new ArrayList<>();

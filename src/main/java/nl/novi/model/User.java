@@ -1,5 +1,7 @@
 package nl.novi.model;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.Collection;
 
 import javax.persistence.CascadeType;

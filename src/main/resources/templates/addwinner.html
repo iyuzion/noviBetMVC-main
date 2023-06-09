@@ -28,14 +28,15 @@
     </div>
     <form th:action="@{/addwinner}" th:object="${match}" method="post">
       <input type="hidden" name="id" th:value="${thematch.getId()}">
-      <input type="hidden" name="userOne" th:value="${thematch.teamOne.getId()}">
-      <input type="hidden" name="UserTwo" th:value="${thematch.teamTwo.getId()}">
-      <select name="winner" required th:field="*{winner}">
-        <option th:field="*{winner}" th:each="team :${thematch.getDeelnemers()}"
-                th:value="${team.getId()}"
+      <input type="hidden" name="teamOne" th:value="${thematch.teamOne.getId()}">
+      <input type="hidden" name="teamTwo" th:value="${thematch.teamTwo.getId()}">
+      <select th:if="${thematch.getWinnerName() == 'geen winner'}" name="winner" required th:field="*{winner}">
+        <option  th:field="*{winner}" th:each="team :${thematch.getDeelnemers()}"
+                th:value="${team.getName()}"
                 th:text="${team.getName()}">
+        <option value="Tie" >Tie</option>
       </select>
-      <button type="submit">Update</button>
+      <button type="submit" th:if="${thematch.getWinnerName() == 'geen winner'}">Update</button>
     </form>
   </div>
   </tbody>

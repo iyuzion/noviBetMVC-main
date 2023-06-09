@@ -40,6 +40,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public User saveAdmin(UserRegistrationDto registrationDto) {
+
+		User user = new User(registrationDto.getFirstName(), registrationDto.getLastName(), registrationDto.getEmail(),
+				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_ADMIN")));
+
+		return userRepository.save(user);
+	}
+
+	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		User user = userRepository.findByEmail(username);
