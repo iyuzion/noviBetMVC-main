@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Match</title>
 
 </head>
 <!--Navigation bar-->
@@ -16,11 +16,13 @@
         <option value="0">select team</option>
         <option th:each="team : ${teams}" th:value="${team.getId()}" th:text="${team.getName()}"></option>
     </select>
+    <span> vs. </span>
     <select class="form-control" id="teamTwo" th:field="*{teamTwo}">
         <option value="0">select team</option>
         <option th:each="team : ${teams}" th:value="${team.getId()}" th:text="${team.getName()}"></option>
     </select>
-    <input type="submit" value="Add match">
+    <br>
+    <input class=button type="submit" value="Add match">
 </form>
 </body>
 </html>

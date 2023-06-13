@@ -14,11 +14,7 @@
 			<strong>Success!</strong> Login Successful.
 		</div>
 	</div>
-	<div class="container">
-		<div class="alert alert-success">
-			<strong th:text="${juistebets}">0</strong> bets correct voorspelt
-		</div>
-	</div>
+	<span><strong th:text="${juistebets}">0</strong> bets correct voorspelt</span>
 	<input type="hidden" th:name="${_csrf.parameterName}"
 		th:value="${_csrf.token}" />
 </body>

@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Novibet</title>
+    <title>Add Team</title>
 </head>
 <!--Navigation bar-->
 <div th:insert="header :: header">...</div>
@@ -14,7 +14,7 @@
 <form action="#" th:action="@{/addteam}" th:object="${Team}" method="post">
     <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <input type="submit" value="Add team">
+    <input class=button type="submit" value="Add team">
 </form>
 </body>
 </html>

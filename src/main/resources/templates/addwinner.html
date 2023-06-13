@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
   <meta charset="ISO-8859-1">
-  <title>Novibet</title>
+  <title>Add Winner</title>
 
 </head>
 <!--Navigation bar-->
@@ -23,9 +23,9 @@
   <div th:each="thematch :${matches}">
     <div th:text="${thematch.getTeamOne().getName()}
     + ' vs. '
-    + ${thematch.getTeamTwo().getName()}
-    + ' winner:' + ${thematch.getWinnerName()}">
+    + ${thematch.getTeamTwo().getName()} ">
     </div>
+    <div th:text="'winner: ' + ${thematch.getWinnerName()}"></div>
     <form th:action="@{/addwinner}" th:object="${match}" method="post">
       <input type="hidden" name="id" th:value="${thematch.getId()}">
       <input type="hidden" name="teamOne" th:value="${thematch.teamOne.getId()}">
@@ -37,7 +37,9 @@
         <option value="Tie" >Tie</option>
       </select>
       <button type="submit" th:if="${thematch.getWinnerName() == 'geen winner'}">Update</button>
+      <br>
     </form>
+    <br>
   </div>
   </tbody>
 </table>

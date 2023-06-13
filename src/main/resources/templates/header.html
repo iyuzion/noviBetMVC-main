@@ -2,7 +2,43 @@
 <header th:fragment="header">
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <nav style="background-color: green" class="navbar navbar-inverse navbar-fixed-top">
+    <style>
+	body, .alert, .alert-success{
+		background-color: Tan;
+		border-color: Tan;
+		font-size: 26px;
+		text-align: center;
+		}
+
+	h1 {
+		color: OrangeRed;
+		}
+	.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+    	color: white;
+    	font-size: 26px;
+		}
+	.navbar,button, .button {
+		border-color: OrangeRed;
+		background-color: OrangeRed;
+		}
+	button, .button {
+	    color: white;
+	    border-radius: 10px;
+		}
+	.form-control {
+	    font-size: 26px;
+	    text-align: center;
+	    width: 50%;
+        height: 50px;
+        padding: 0px 0px;
+        margin: 0% 25%;
+	}
+	table, th{
+	    width: 50%;
+	    text-align: center;
+	    align-items: center;}
+</style>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed"
@@ -12,7 +48,7 @@
                         class="icon-bar"></span> <span class="icon-bar"></span> <span
                         class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" th:href="@{/}">Login</a>
+                <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
